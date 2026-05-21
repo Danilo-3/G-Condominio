@@ -83,7 +83,14 @@ void Lista_fracoes::insere_fracoes(){
     cout << "fracao inserida com exito" << endl;
 
 }
-
+int Lista_fracoes :: procura_fracao(int codigo){
+    CNoLista_fracoes *atual = cabeca;
+    while(atual->proximo != nullptr){
+        if(atual->Dados.proprietario == codigo) return atual->Dados.proprietario;
+        atual = atual->proximo;
+}
+    return 0;
+}
 void Lista_fracoes::modificar_proprietario() {
     if (cabeca == nullptr) {
         cout << "nao tem fracoes.";

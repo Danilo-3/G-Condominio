@@ -21,6 +21,7 @@ class lista_movimentos
     double saldo_condominio;
     no_lista *cabeca;
 public:
+
     lista_movimentos();
     void tipo_despesas(Condominos& haha);
     void insere_despesas(Condominos&);

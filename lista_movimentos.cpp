@@ -12,6 +12,14 @@ void guarda_ficheiro(ofstream& ficheiro, no_lista *atual) {
 lista_movimentos::lista_movimentos() {
     cabeca = nullptr;
 }
+void lista_movimentos :: abertura_do_ano(){
+    double aux = saldo_condominio;
+    cout << "Insira o valor do orçamento do ano";
+    do{
+        cin >> saldo_condominio;
+    }while(saldo_condominio <= 0);
+    saldo_condominio += aux;
+}
 void lista_movimentos :: tipo_despesas(Condominos& haha){
     if(cabeca == nullptr){
         cout << "Nao há despesas\n";

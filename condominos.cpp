@@ -22,7 +22,7 @@ void guarda_ficheiro(ofstream& ficheiro, lista_condo *ponteiro) {
              <<"\nSaldo: " << ponteiro->dados.euros << "€" << endl;
 }
 
-void Condominos :: mostra_nomes(){
+void Condominos :: mostra_nomes(const lista_fracoes& m){
 
     if(cabeca == nullptr){
         cout << "A lista de condominos está vazia;" << endl;
@@ -52,11 +52,11 @@ void Condominos :: mostra_nomes(){
         pede_dados();
         return;
     }
-    mostra_tudo(u);
+    mostra_tudo(u,m);
     return;
 }
 
-void Condominos :: mostra_tudo(int k){
+void Condominos :: mostra_tudo(int k,const Lista_fracoes& t){
     lista_condo *atual = cabeca;
     int i = 2;
     while(i != k){
@@ -68,8 +68,10 @@ void Condominos :: mostra_tudo(int k){
                  << "\nmorada: " << atual->dados.morada
                  <<"\nemail: " << atual->dados.gmail
                  <<"\nTelefone: " << atual->dados.telefone
-
                  <<"\nSaldo: " << atual->dados.euros << "€" << endl;
+    int auxi = t.procura_fracao(atual->dados.codigo);
+    if(auxi == 0) cout << "Nao há fracoes" <<endl;
+    else cout << "Permilagem: " << auxi << endl;
     char m;
     cout << "2. Alterar dados"
             "\n1. Eliminar Condomino"
@@ -77,7 +79,7 @@ void Condominos :: mostra_tudo(int k){
     do{
              cin >> m;
     }while(!('0' <= m || m <= '2'));
-    if(m == '0'){ mostra_nomes(); return;}
+    if(m == '0'){ mostra_nomes(t); return;}
     if(m == '1'){ deleta_condomino(atual,k); return;}
     if(m == '2'){ altera_dados(atual,k); return;}
 }

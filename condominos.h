@@ -31,8 +31,8 @@ public:
     ~Condominos();
     void deleta_condomino(lista_condo *k,int);
     void pede_dados(); //Quando a pessoa quiser adicionar um condomino
-    void mostra_tudo(int k) ;
-    void mostra_nomes() ;
+    void mostra_tudo(int k,const Lista_fracoes&) ;
+    void mostra_nomes(const Lista_fracoes&) ;
     void altera_dados(lista_condo *atu, int );
     bool procura(unsigned int codigos) const;
     lista_condo* procura(unsigned int codigos) ;

@@ -26,10 +26,9 @@ public:
     Lista_fracoes();
     void mostra_fracoes_descreve() ;
     void procura_fracao(int codigo) const;
-     void mostra_fracao(int k) const;
+    void mostra_fracao(int k) const;
     void insere_fracoes();
     void modificar_proprietario();
-
-
+    int procura_fracao(int codigo);
 };
 #endif // LISTA_MOVIMENTO_CONTA_H
