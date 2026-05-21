@@ -6,6 +6,7 @@ int main(){
     Lista_fracoes listas;
     CListaTipoMovimento lista;
     int op;
+    int confirma = 0;
 
 inicio:
         cout << "digite 1 para iniciar o programa gestao de condomínio\n"
@@ -68,7 +69,6 @@ inicio:
                             lista.modificar();
                         else if(op != 0)
                             cout << "opcao invalida!\n";
-
                     } while(op != 0);
                     break;
                 }
@@ -76,9 +76,9 @@ inicio:
                     cout << "Nao e possivel acessar essas opcoes por a permilagem total é diferente de mil" << endl;
                     goto loop;
                 }
+                if(op == 4){confirma += 1;  B.abertura_do_ano();}
+                if(confirma == 0){cout << "Nao é possivel pois a abertura do ano nao foi efetuada" << endl; goto loop; }
                 switch (op){
-                case 4:
-                    B.abertura_do_ano();
                 case 6:
                     B.tipo_despesas(A);
                     break;
