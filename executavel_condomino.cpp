@@ -8,7 +8,7 @@ int main(){
     int op;
 
 inicio:
-        cout << "Pressione 1 para iniciar o programa gestao de condomínio\n"
+        cout << "digite 1 para iniciar o programa gestao de condomínio\n"
                 "Trabalho Realizado por: \nDanilo Lima Brito\n"
                 "Kaíke Aléssio Olímpio de Souza\n"
                 "Data de realizacao: 20/05/2026\n";
@@ -49,7 +49,7 @@ inicio:
                 } while(op != 0);
                 break;
                 case 2:
-                    A.mostra_nomes();
+                    A.mostra_nomes(listas);
                     break;
                 case 3:
                     do {
@@ -77,6 +77,8 @@ inicio:
                     goto loop;
                 }
                 switch (op){
+                case 4:
+                    B.abertura_do_ano();
                 case 6:
                     B.tipo_despesas(A);
                     break;
