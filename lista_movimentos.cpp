@@ -64,8 +64,9 @@ void lista_movimentos :: mostra_despesa(Condominos& haha,const int& u){
         atual = atual->proximo;
     }
     cout << "\nCodigo do movimento: " << atual->dados.id_movimento
-         << "\nData: "     << atual->dados.data
-         << "\nValor: " << atual->dados.valor
+         << "\nData: "     << setw(4) << atual->dados.ano << "-" << setw(2) << right << setfill('0') <<
+        atual->dados.mes << "-" << setw(2) << right <<setfill('0') << atual->dados.dia << endl
+        << "\nValor: " << atual->dados.valor
          <<"\nCodigo do tipo de movimento: " << atual->dados.codigo_tipo_movimento
          <<"\nOrigem do pagamento: " << atual->dados.origem_pagamento
          <<"\nDescricao do movimento: " << atual->dados.descricao_movimento;
@@ -101,8 +102,12 @@ void lista_movimentos :: mostra_despesa(Condominos& haha,const int& u){
             cin >> atual->dados.id_movimento;
             break;
         case 3:
-            cout <<"\nInsira uma nova data: ";
-            cin >> atual->dados.data;
+            cout <<"\nInsira um novo ano: ";
+            cin >> atual->dados.ano;
+            cout << "\nInsira um novo mes: ";
+            cin >> atual->dados.mes;
+            cout <<"\nInsira um novo dia: ";
+            cin >> atual->dados.dia;
             break;
         case 4:
             cout <<"\nInsira um novo Codigo do movimento";
@@ -120,10 +125,10 @@ void lista_movimentos :: mostra_despesa(Condominos& haha,const int& u){
             }
             break;
               }
-            goto label1;
+
 
         }
-
+    goto label1;
     }
 
 void lista_movimentos ::  insere_despesas(Condominos& haha){
@@ -131,8 +136,12 @@ void lista_movimentos ::  insere_despesas(Condominos& haha){
 
     cout << "\nInsira o codigo do movimento:";
     cin >> novo->dados.id_movimento;
-    cout << "\nA Data (aaaa-mm-dd)";
-    cin >> novo->dados.data;
+    cout << "\nA Insira ano ";
+    cin >> novo->dados.ano;
+    cout << "\nInsira um mes:";
+    cin >> novo->dados.mes;
+    cout << "\nInsira um dia: ";
+    cin >> novo->dados.dia;
     cout << "\nO valor";
     cin >>novo->dados.valor;
     novo->dados.valor = - novo->dados.valor;
@@ -149,10 +158,11 @@ void lista_movimentos ::  insere_despesas(Condominos& haha){
     cin >> novo->dados.descricao_movimento;
     if(cabeca == nullptr)
         cabeca = novo;
-
     else{
+        no_lista *atual = cabeca;
+        if( novo->dados.ano > atual->dados.ano){
+        }
         novo->proximo = cabeca->proximo;
-        cabeca->proximo = novo;
     }
     tipo_despesas(haha);
     return;

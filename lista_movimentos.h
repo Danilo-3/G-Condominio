@@ -5,7 +5,8 @@
 #include "CListaTipoMovimento.h"
 typedef struct{
     unsigned int id_movimento,codigo_tipo_movimento,origem_pagamento;
-    char data[11],descricao_movimento[31];
+    char descricao_movimento[31];
+    int ano,mes,dia;
     double valor;
 }move_contas;
 
