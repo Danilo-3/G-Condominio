@@ -9,15 +9,15 @@ int main(){
     int confirma = 0;
 
 inicio:
-        cout << "digite 1 para iniciar o programa gestao de condomínio\n"
+        cout << "digite 1 para iniciar o programa gestao de condominio\n"
                 "Trabalho Realizado por: \nDanilo Lima Brito\n"
-                "Kaíke Aléssio Olímpio de Souza\n"
+                "Kaike Aléssio Olímpio de Souza\n"
                 "Data de realizacao: 20/05/2026\n";
         cin >> op;
 
         loop:
             cout << "1. Fraçoes"
-                "\n2.Condóminos"
+                "\n2.Condominos"
                 "\n3.Tipo de Despesas"
                 "\n4.Abertura do ano"
                 "\n5.Receita"
@@ -73,11 +73,11 @@ inicio:
                     break;
                 }
                 if(listas.permilagem_tota() != 1000){
-                    cout << "Nao e possivel acessar essas opcoes por a permilagem total é diferente de mil" << endl;
+                    cout << "Nao e possivel acessar essas opcoes por a permilagem total e diferente de mil" << endl;
                     goto loop;
                 }
                 if(op == 4){confirma += 1;  B.abertura_do_ano();}
-                if(confirma == 0){cout << "Nao é possivel pois a abertura do ano nao foi efetuada" << endl; goto loop; }
+                if(confirma == 0){cout << "Nao e possivel pois a abertura do ano nao foi efetuada" << endl; goto loop; }
                 switch (op){
                 case 6:
                     B.tipo_despesas(A);
