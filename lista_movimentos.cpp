@@ -207,7 +207,7 @@ void lista_movimentos :: mostra_receitas(Condominos& haha,const int& u){
         atual = atual->proximo;
     }
     cout << "\nCodigo do movimento: " << atual->dados.id_movimento
-         << "\nData: "     << atual->dados.data
+         << "\nData: "     << atual->dados.ano << "-" << setw(2) << setfill('0') << atual->dados.mes << "-" << atual->dados.dia
          << "\nValor: " << atual->dados.valor
          <<"\nCodigo do tipo de movimento: " << atual->dados.codigo_tipo_movimento
          <<"\nOrigem do pagamento: " << atual->dados.origem_pagamento
@@ -244,8 +244,12 @@ label1:
         cin >> atual->dados.id_movimento;
         break;
     case 3:
-        cout <<"\nInsira uma nova data: ";
-        cin >> atual->dados.data;
+        cout <<"\nInsira um novo ano: ";
+        cin >> atual->dados.ano;
+        cout << "Insira um novo mes: ";
+        cin >> atual->dados.mes;
+        cout << "Insira um novo dia: ";
+        cin >> atual->dados.dia;
         break;
     case 4:
         cout <<"\nInsira um novo Codigo do movimento";
@@ -273,8 +277,12 @@ void lista_movimentos ::  insere_receitas(Condominos& haha){
 
     cout << "\nInsira o codigo do movimento:";
     cin >> novo->dados.id_movimento;
-    cout << "\nA Data (aaaa-mm-dd)";
-    cin >> novo->dados.data;
+    cout << "\nInsira um ano";
+    cin >> novo->dados.ano;
+    cout << "\nInsira um mes";
+    cin >> novo->dados.mes;
+    cout << "\nInsira um dia";
+    cin >> novo->dados.dia;
     cout << "\nO valor";
     cin >>novo->dados.valor;
     cout << "\nO codigo do tipo de movimento";
@@ -293,8 +301,14 @@ void lista_movimentos ::  insere_receitas(Condominos& haha){
         cabeca = novo;
 
     else{
-        novo->proximo = cabeca->proximo;
-        cabeca->proximo = novo;
+        no_lista* atual = cabeca;
+        while(atual->proximo != NULL && atual->proximo->dados.ano <= novo->dados.ano) {
+            atual = atual->proximo;
+        }
+
+        // Insere o novo nó
+        novo->proximo = atual->proximo;
+        atual->proximo = novo;
     }
     tipo_receitas(haha);
     return;
